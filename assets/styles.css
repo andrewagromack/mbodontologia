@@ -2245,7 +2245,7 @@ footer {
 }
 
 .purpose-text-rotator .purpose-text-item:nth-child(2) {
-  animation-delay: 4s;
+  animation-delay: 8s;
 }
 
 @keyframes purposeTextCycle {
