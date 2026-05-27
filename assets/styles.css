@@ -2412,3 +2412,44 @@ footer {
       .campaign-card img { height: 205px; }
       .campaign-form-copy { padding: 24px; }
     }
+
+/* ============================================================
+   Ajuste solicitado — Hero index en mobile
+   Muestra preferentemente la mitad derecha de la foto y oscurece
+   el fondo para asegurar contraste del texto flotante.
+   ============================================================ */
+@media (max-width: 600px) {
+  main > .hero.hero-home-carousel {
+    min-height: 540px !important;
+    padding-top: 54px !important;
+    padding-bottom: 54px !important;
+    align-items: center !important;
+  }
+
+  main > .hero.hero-home-carousel .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .hero-home-carousel .hero-bg-slide img {
+    object-position: 76% center !important;
+    filter: brightness(.46) saturate(1.04) !important;
+  }
+
+  .hero-home-carousel::after {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(10,25,64,.97) 0%,
+        rgba(10,25,64,.90) 42%,
+        rgba(10,25,64,.68) 66%,
+        rgba(10,25,64,.46) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(10,25,64,.24) 0%,
+        rgba(10,25,64,.08) 48%,
+        rgba(10,25,64,.30) 100%
+      ) !important;
+  }
+}
