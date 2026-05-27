@@ -2240,12 +2240,12 @@ footer {
   margin: 0 auto !important;
   color: var(--slate) !important;
   pointer-events: none;
-  animation: purposeTextCycle 16s infinite;
+  animation: purposeTextCycle 8s infinite;
   will-change: opacity, transform;
 }
 
 .purpose-text-rotator .purpose-text-item:nth-child(2) {
-  animation-delay: 8s;
+  animation-delay: 4s;
 }
 
 @keyframes purposeTextCycle {
