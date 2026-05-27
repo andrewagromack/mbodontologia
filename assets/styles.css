@@ -1177,6 +1177,7 @@ footer {
 
 .home-service-slide img {
   width: 100%;
+  height: auto;
   aspect-ratio: 2 / 1;
   object-fit: cover;
 }
