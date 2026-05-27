@@ -81,11 +81,11 @@ section { padding: 80px 0; }
   min-height: 118px;
   height: auto;
   padding: 16px 0;
-  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  display: flex; align-items: center; justify-content: space-between; gap: 18px;
   overflow: visible;
 }
 .brand { display: flex; align-items: center; gap: 10px; min-width: 150px; flex-shrink: 0; padding: 8px 0; overflow: visible; }
-.brand img { width: 122px; height: auto; max-height: none; object-fit: contain; }
+.brand img { width: 112px; height: auto; max-height: none; object-fit: contain; }
 .brand span { display: none; }  /* logo ya incluye texto Odontología */
 .menu {
   display: flex; align-items: center; gap: 2px;
@@ -621,13 +621,13 @@ footer {
 
 @media (max-width: 600px) {
   .hero-equipo { min-height: 340px; padding: 60px 0; }
-  .hero-equipo::before { opacity: .28; }
+  .hero-equipo::before { opacity: .48; }
   .hero-equipo::after {
     background: linear-gradient(
       180deg,
-      rgba(10,25,64,.88) 0%,
-      rgba(10,25,64,.70) 60%,
-      rgba(10,25,64,.50) 100%
+      rgba(10,25,64,.72) 0%,
+      rgba(10,25,64,.52) 60%,
+      rgba(10,25,64,.34) 100%
     );
   }
 }
@@ -664,13 +664,13 @@ footer {
 
 @media (max-width: 600px) {
   .hero-sedes { min-height: 340px; padding: 60px 0; }
-  .hero-sedes::before { opacity: .30; }
+  .hero-sedes::before { opacity: .50; }
   .hero-sedes::after {
     background: linear-gradient(
       180deg,
-      rgba(10,25,64,.90) 0%,
-      rgba(10,25,64,.72) 60%,
-      rgba(10,25,64,.52) 100%
+      rgba(10,25,64,.72) 0%,
+      rgba(10,25,64,.54) 60%,
+      rgba(10,25,64,.36) 100%
     );
   }
 }
@@ -707,64 +707,18 @@ footer {
 
 @media (max-width: 600px) {
   .hero-tratamientos { min-height: 340px; padding: 60px 0; }
-  .hero-tratamientos::before { opacity: .28; }
+  .hero-tratamientos::before { opacity: .48; }
   .hero-tratamientos::after {
     background: linear-gradient(
       180deg,
-      rgba(10,25,64,.92) 0%,
-      rgba(10,25,64,.72) 60%,
-      rgba(10,25,64,.52) 100%
+      rgba(10,25,64,.74) 0%,
+      rgba(10,25,64,.54) 60%,
+      rgba(10,25,64,.36) 100%
     );
   }
 }
 
-/* ── Hero MB Móvil (foto furgón dental) ──────────────────── */
-.hero-movil {
-  position: relative;
-  min-height: 420px;
-  display: flex; align-items: center;
-  padding: 80px 0;
-  overflow: hidden;
-  background-color: var(--navy);
-}
-.hero-movil::before {
-  content: "";
-  position: absolute; inset: 0;
-  background: url('hero-movil.webp') center 35% / cover no-repeat;
-  opacity: .42;
-  z-index: 0;
-}
-.hero-movil::after {
-  content: "";
-  position: absolute; inset: 0;
-  background: linear-gradient(
-    100deg,
-    rgba(10,25,64,.96) 0%,
-    rgba(10,25,64,.80) 40%,
-    rgba(10,25,64,.22) 68%,
-    transparent 100%
-  );
-  z-index: 1;
-}
-.hero-movil .container { position: relative; z-index: 2; }
 
-@media (max-width: 600px) {
-  .hero-movil { min-height: 340px; padding: 60px 0; }
-  .hero-movil::before { opacity: .30; }
-  .hero-movil::after {
-    background: linear-gradient(
-      180deg,
-      rgba(10,25,64,.92) 0%,
-      rgba(10,25,64,.72) 60%,
-      rgba(10,25,64,.52) 100%
-    );
-  }
-}
-
-/* ── Logo header: transparente ──────────────────────────────── */
-.brand img {
-  width: 112px; height: auto;
-}
 
 /* hamburger defined in base rules above */
 
@@ -801,7 +755,6 @@ footer {
 /* ============================================================
    Reestructura v1 — Header simplificado + hero con carrusel
    ============================================================ */
-.nav { gap: 18px; }
 .nav > .btn { display: none; }
 .menu { margin-left: auto; gap: 6px; }
 .menu a { font-size: 14px; }
@@ -1124,22 +1077,6 @@ footer {
 }
 
 /* ============================================================
-   Override final — padding móvil hero index
-   ============================================================ */
-@media (max-width: 600px) {
-  main > .hero.hero-home-carousel {
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
-    min-height: unset !important;
-  }
-
-  main > .hero.hero-home-carousel .container {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-}
-
-/* ============================================================
    Home — propósito y carrusel de servicios
    ============================================================ */
 .purpose-section {
@@ -1328,23 +1265,6 @@ footer {
     min-height: 70px;
     padding: 18px;
     font-size: 18px;
-  }
-}
-
-
-/* ============================================================
-   Ajustes solicitados — Home móvil, propósito, servicios y CTA
-   ============================================================ */
-@media (max-width: 600px) {
-  main > .hero.hero-home-carousel {
-    padding-top: 56px !important;
-    padding-bottom: 56px !important;
-    min-height: auto !important;
-  }
-
-  main > .hero.hero-home-carousel .container {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
   }
 }
 
@@ -2399,13 +2319,13 @@ footer {
     }
     @media (max-width: 600px) {
       .campaign-hero { min-height: 320px; padding: 52px 0 56px; }
-      .campaign-hero::before { opacity: .26; }
+      .campaign-hero::before { opacity: .44; }
       .campaign-hero::after {
         background: linear-gradient(
           180deg,
-          rgba(10,25,64,.92) 0%,
-          rgba(10,25,64,.74) 62%,
-          rgba(10,25,64,.54) 100%
+          rgba(10,25,64,.74) 0%,
+          rgba(10,25,64,.56) 62%,
+          rgba(10,25,64,.36) 100%
         );
       }
       .campaign-hero-actions .btn { width: 100%; }
@@ -2433,23 +2353,23 @@ footer {
 
   .hero-home-carousel .hero-bg-slide img {
     object-position: 76% center !important;
-    filter: brightness(.46) saturate(1.04) !important;
+    filter: brightness(.68) saturate(1.04) !important;
   }
 
   .hero-home-carousel::after {
     background:
       linear-gradient(
         90deg,
-        rgba(10,25,64,.97) 0%,
-        rgba(10,25,64,.90) 42%,
-        rgba(10,25,64,.68) 66%,
-        rgba(10,25,64,.46) 100%
+        rgba(10,25,64,.88) 0%,
+        rgba(10,25,64,.72) 42%,
+        rgba(10,25,64,.44) 66%,
+        rgba(10,25,64,.18) 100%
       ),
       linear-gradient(
         180deg,
-        rgba(10,25,64,.24) 0%,
-        rgba(10,25,64,.08) 48%,
-        rgba(10,25,64,.30) 100%
+        rgba(10,25,64,.18) 0%,
+        rgba(10,25,64,.06) 48%,
+        rgba(10,25,64,.22) 100%
       ) !important;
   }
 }
