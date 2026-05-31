@@ -16,17 +16,25 @@ El sitio mantiene una arquitectura simple para facilitar edición manual desde V
 ├── servicios.html          # Servicios odontológicos
 ├── equipo.html             # Página del equipo / nosotros
 ├── agendar.html            # Página de agendamiento y formulario
-├── campanas.html           # Landing de campañas, fuera del menú principal
+├── campanas.html           # Landing de campañas
+├── privacidad.html         # Política de privacidad
+├── 404.html                # Página de error 404
+├── en-construccion.html    # Página transitoria para secciones pendientes
 ├── sitemap.xml             # Sitemap del sitio
 ├── robots.txt              # Reglas básicas para buscadores
+├── llms.txt                # Resumen legible para agentes IA
+├── README.md               # Documentación del proyecto
 └── assets/
-    ├── styles.css          # Estilos globales del sitio
-    ├── script.js           # Funciones JS: menú, carruseles, formularios, animaciones
-    ├── *.webp              # Imágenes optimizadas del sitio
-    ├── favicon.ico
-    ├── favicon-32.png
-    ├── favicon-192.png
-    └── og-image.jpg
+    ├── css/
+    │   └── styles.css      # Estilos globales del sitio
+    ├── js/
+    │   └── scripts.js      # Funciones JS: menú, carruseles, formularios, animaciones
+    └── img/
+        ├── *.webp          # Imágenes optimizadas del sitio
+        ├── favicon.ico
+        ├── favicon-32.png
+        ├── favicon-192.png
+        └── og-image.jpg
 ```
 
 ## Páginas principales
@@ -71,7 +79,7 @@ Los formularios usan la clase:
 <form class="contact-form" action="https://formspree.io/f/mvzyvwob" method="POST">
 ```
 
-El archivo `assets/script.js` gestiona:
+El archivo `assets/js/scripts.js` gestiona:
 
 - validación básica de campos obligatorios;
 - envío real a Formspree;
@@ -123,15 +131,15 @@ Las imágenes principales del sitio están en `assets/` y fueron optimizadas a f
 Ejemplos relevantes:
 
 ```text
-assets/hero-home-atencion-movil.webp
-assets/hero-home-equipo-movil.webp
-assets/hero-home-sede-san-bernardo.webp
-assets/hero-home-clinica-movil.webp
-assets/hero-agendar-calendario.webp
-assets/hero-campanas-consulta.webp
-assets/servicio-card-01.webp
+assets/img/hero-home-atencion-movil.webp
+assets/img/hero-home-equipo-movil.webp
+assets/img/hero-home-sede-san-bernardo.webp
+assets/img/hero-home-clinica-movil.webp
+assets/img/hero-agendar-calendario.webp
+assets/img/hero-campanas-consulta.webp
+assets/img/servicio-card-01.webp
 ...
-assets/servicio-card-09.webp
+assets/img/servicio-card-09.webp
 ```
 
 Para reemplazar una imagen:
@@ -143,14 +151,14 @@ Para reemplazar una imagen:
 
 ## Carruseles y animaciones
 
-El sitio usa JavaScript vanilla en `assets/script.js` para:
+El sitio usa JavaScript vanilla en `assets/js/scripts.js` para:
 
 - carrusel del hero en `index.html`;
 - carrusel de servicios;
 - fade-in de tarjetas durante el scroll;
 - rotación de textos en el bloque “Nuestro propósito”, cuando corresponde.
 
-Los textos y slides están en el HTML. Los estilos principales están en `assets/styles.css`.
+Los textos y slides están en el HTML. Los estilos principales están en `assets/css/styles.css`.
 
 ## SEO básico
 
@@ -217,21 +225,21 @@ Editar directamente el archivo HTML correspondiente.
 Editar:
 
 ```text
-assets/styles.css
+assets/css/styles.css
 ```
 
 ### Cambiar comportamiento JS
 Editar:
 
 ```text
-assets/script.js
+assets/js/scripts.js
 ```
 
 ### Cambiar imágenes
 Reemplazar archivos dentro de:
 
 ```text
-assets/
+assets/img/
 ```
 
 Mantener nombres si no se quiere modificar HTML/CSS.

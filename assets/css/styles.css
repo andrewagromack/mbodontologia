@@ -572,7 +572,7 @@ footer {
 .hero-equipo::before {
   content: "";
   position: absolute; inset: 0;
-  background: url('hero-equipo.webp') center center / cover no-repeat;
+  background: url('../img/hero-equipo.webp') center center / cover no-repeat;
   opacity: .38;
   z-index: 0;
 }
@@ -644,7 +644,7 @@ footer {
 .hero-sedes::before {
   content: "";
   position: absolute; inset: 0;
-  background: url('hero-sedes.webp') center 40% / cover no-repeat;
+  background: url('../img/hero-sedes.webp') center 40% / cover no-repeat;
   opacity: .40;
   z-index: 0;
 }
@@ -687,7 +687,7 @@ footer {
 .hero-tratamientos::before {
   content: "";
   position: absolute; inset: 0;
-  background: url('hero-tratamientos.webp') center 30% / cover no-repeat;
+  background: url('../img/hero-tratamientos.webp') center 30% / cover no-repeat;
   opacity: .38;
   z-index: 0;
 }
@@ -1713,7 +1713,7 @@ footer {
   background:
     linear-gradient(90deg, rgba(10,25,64,.94) 0%, rgba(10,25,64,.86) 34%, rgba(10,25,64,.58) 58%, rgba(10,25,64,.24) 100%),
     linear-gradient(0deg, rgba(10,25,64,.18), rgba(10,25,64,.18)),
-    url('hero-agendar-calendario.webp') center center / cover no-repeat;
+    url('../img/hero-agendar-calendario.webp') center center / cover no-repeat;
   border-bottom: 1px solid rgba(11,233,244,.22);
 }
 
@@ -2221,7 +2221,7 @@ footer {
       content: "";
       position: absolute;
       inset: 0;
-      background: url('hero-campanas-consulta.webp') center center / cover no-repeat;
+      background: url('../img/hero-campanas-consulta.webp') center center / cover no-repeat;
       opacity: .34;
       filter: brightness(.74);
       z-index: 0;
@@ -2471,5 +2471,251 @@ footer {
   .reviews-grid {
     grid-template-columns: 1fr;
     gap: 14px;
+  }
+}
+
+/* Equipo — foto profesional en tarjetas */
+.team-avatar.team-avatar-photo {
+  width: 104px;
+  height: 104px;
+  padding: 0;
+  overflow: hidden;
+  background: var(--cyan-tint);
+  border: 3px solid rgba(11,233,244,.45);
+  box-shadow: 0 12px 28px rgba(10,25,64,.14);
+}
+
+.team-avatar.team-avatar-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 28%;
+  display: block;
+}
+
+@media (max-width: 960px) {
+  .team-avatar.team-avatar-photo {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .team-avatar.team-avatar-photo {
+    width: 108px;
+    height: 108px;
+  }
+}
+
+
+/* Equipo — modal de foto ampliada */
+.team-avatar.team-avatar-photo.team-photo-trigger {
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 50%;
+  cursor: zoom-in;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.team-avatar.team-avatar-photo.team-photo-trigger:hover,
+.team-avatar.team-avatar-photo.team-photo-trigger:focus-visible {
+  transform: translateY(-2px) scale(1.03);
+  border-color: rgba(0,196,206,.82);
+  box-shadow: 0 16px 36px rgba(10,25,64,.18), 0 0 0 4px rgba(11,233,244,.12);
+}
+
+.photo-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.photo-modal.is-open {
+  display: flex;
+}
+
+.photo-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: rgba(10,25,64,.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  cursor: zoom-out;
+}
+
+.photo-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(92vw, 520px);
+  max-height: min(88vh, 760px);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--white);
+  box-shadow: 0 28px 90px rgba(10,25,64,.42);
+  border: 1px solid rgba(255,255,255,.72);
+}
+
+.photo-modal-dialog img {
+  width: 100%;
+  max-height: min(88vh, 760px);
+  display: block;
+  object-fit: contain;
+  background: var(--cyan-tint);
+}
+
+.photo-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255,255,255,.56);
+  border-radius: 50%;
+  background: rgba(10,25,64,.78);
+  color: var(--white);
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(10,25,64,.28);
+}
+
+.photo-modal-close:hover,
+.photo-modal-close:focus-visible {
+  background: var(--cyan);
+  color: var(--navy);
+}
+
+body.photo-modal-open {
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .photo-modal {
+    padding: 14px;
+  }
+
+  .photo-modal-dialog {
+    width: min(94vw, 460px);
+    border-radius: 22px;
+  }
+
+  .photo-modal-close {
+    width: 38px;
+    height: 38px;
+    font-size: 28px;
+  }
+}
+
+/* Ajuste modal equipo — foto completa + nombre y especialidad */
+.photo-modal-dialog {
+  display: flex;
+  flex-direction: column;
+  width: min(92vw, 560px);
+  max-height: min(90vh, 820px);
+}
+
+.photo-modal-dialog img {
+  width: 100%;
+  height: auto;
+  max-height: calc(min(90vh, 820px) - 92px);
+  object-fit: contain;
+  object-position: center center;
+  background: var(--cyan-tint);
+}
+
+.photo-modal-caption {
+  padding: 16px 22px 18px;
+  background: var(--white);
+  border-top: 1px solid rgba(10,25,64,.10);
+  text-align: center;
+}
+
+.photo-modal-caption strong {
+  display: block;
+  color: var(--navy);
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+.photo-modal-caption span {
+  display: block;
+  margin-top: 4px;
+  color: var(--cyan-deep);
+  font-size: 13px;
+  line-height: 1.35;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .055em;
+}
+
+@media (max-width: 600px) {
+  .photo-modal-dialog {
+    width: min(94vw, 460px);
+    max-height: 88vh;
+  }
+
+  .photo-modal-dialog img {
+    max-height: calc(88vh - 88px);
+  }
+
+  .photo-modal-caption {
+    padding: 14px 18px 16px;
+  }
+
+  .photo-modal-caption strong {
+    font-size: 17px;
+  }
+
+  .photo-modal-caption span {
+    font-size: 12px;
+  }
+}
+
+/* Fix modal equipo — asegurar visibilidad de nombre y especialidad */
+.photo-modal-dialog {
+  display: grid !important;
+  grid-template-rows: minmax(0, 1fr) auto !important;
+  max-height: calc(100vh - 48px) !important;
+  overflow: hidden !important;
+}
+
+.photo-modal-dialog > img[data-photo-modal-img] {
+  width: 100% !important;
+  height: 100% !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  object-fit: contain !important;
+  object-position: center center !important;
+}
+
+.photo-modal-caption {
+  flex: none !important;
+  display: block !important;
+  position: relative !important;
+  z-index: 3 !important;
+  background: var(--white) !important;
+  color: var(--navy) !important;
+}
+
+.photo-modal-caption strong,
+.photo-modal-caption span {
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 600px) {
+  .photo-modal-dialog {
+    max-height: calc(100vh - 28px) !important;
   }
 }

@@ -236,3 +236,76 @@ serviceCarousels.forEach(carousel => {
 
   cards.forEach(card => observer.observe(card));
 })();
+
+
+// Modal de foto ampliada — equipo
+(() => {
+  const modal = document.querySelector('[data-photo-modal]');
+  const modalImg = modal ? modal.querySelector('[data-photo-modal-img]') : null;
+  const modalTitle = modal ? modal.querySelector('[data-photo-modal-title]') : null;
+  const modalRole = modal ? modal.querySelector('[data-photo-modal-role]') : null;
+  const triggers = Array.from(document.querySelectorAll('[data-photo-modal-src]'));
+  if (!modal || !modalImg || !triggers.length) return;
+
+  let lastTrigger = null;
+  const triggerThumbs = new Map(
+    triggers.map(trigger => {
+      const img = trigger.querySelector('img');
+      return [trigger, img ? img.getAttribute('src') : ''];
+    })
+  );
+
+  const restoreThumbs = () => {
+    triggerThumbs.forEach((src, trigger) => {
+      if (!src) return;
+      const img = trigger.querySelector('img');
+      if (img && img.getAttribute('src') !== src) {
+        img.setAttribute('src', src);
+      }
+    });
+  };
+
+  const openModal = trigger => {
+    lastTrigger = trigger;
+    modalImg.src = trigger.getAttribute('data-photo-modal-src') || '';
+    modalImg.alt = trigger.getAttribute('data-photo-modal-alt') || '';
+    if (modalTitle) modalTitle.textContent = trigger.getAttribute('data-photo-modal-title') || '';
+    if (modalRole) modalRole.textContent = trigger.getAttribute('data-photo-modal-role') || '';
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('photo-modal-open');
+    const closeBtn = modal.querySelector('.photo-modal-close');
+    closeBtn?.focus();
+  };
+
+  const closeModal = () => {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('photo-modal-open');
+    // No limpiamos el src del modal al cerrar: en algunos navegadores puede
+    // provocar un repaint agresivo y dejar en blanco la miniatura recién usada.
+    // Además restauramos explícitamente las miniaturas por seguridad.
+    modalImg.alt = '';
+    if (modalTitle) modalTitle.textContent = '';
+    if (modalRole) modalRole.textContent = '';
+    restoreThumbs();
+    lastTrigger?.focus();
+  };
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', event => {
+      event.preventDefault();
+      openModal(trigger);
+    });
+  });
+
+  modal.querySelectorAll('[data-photo-modal-close]').forEach(closeControl => {
+    closeControl.addEventListener('click', closeModal);
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && modal.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
+})();
