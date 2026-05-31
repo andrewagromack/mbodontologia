@@ -705,6 +705,12 @@ footer {
 }
 .hero-tratamientos .container { position: relative; z-index: 2; }
 
+@media (min-width: 961px) {
+  .hero-tratamientos .hero-equipo-content {
+    max-width: 760px;
+  }
+}
+
 @media (max-width: 600px) {
   .hero-tratamientos { min-height: 340px; padding: 60px 0; }
   .hero-tratamientos::before { opacity: .48; }
