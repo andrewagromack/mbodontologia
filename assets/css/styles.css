@@ -724,8 +724,6 @@ footer {
   }
 }
 
-
-
 /* hamburger defined in base rules above */
 
 /* site-header transparency defined in base rule */
@@ -756,7 +754,6 @@ footer {
   width: 110px; height: auto;
   image-rendering: -webkit-optimize-contrast;
 }
-
 
 /* ============================================================
    Reestructura v1 — Header simplificado + hero con carrusel
@@ -840,7 +837,6 @@ footer {
   .carousel-dots { left: 18px; bottom: 16px; }
 }
 
-
 /* ── Servicios con foto ───────────────────────────────────── */
 .service-photo-grid {
   display: grid;
@@ -922,7 +918,6 @@ footer {
     bottom: 18px;
   }
 }
-
 
 /* ============================================================
    Fix hero index — carrusel de fondo completo, texto fijo
@@ -1151,26 +1146,6 @@ footer {
   background: var(--cyan-tint);
 }
 
-.home-services-carousel {
-  position: relative;
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 14px;
-}
-
-.home-services-viewport {
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-}
-
-.home-services-track {
-  display: flex;
-  gap: 18px;
-  transition: transform .45s ease;
-  will-change: transform;
-}
-
 .home-service-slide {
   flex: 0 0 calc((100% - 36px) / 3);
   min-width: 0;
@@ -1197,48 +1172,38 @@ footer {
   color: var(--navy);
 }
 
-.service-carousel-btn {
-  width: 46px;
-  height: 46px;
-  border: 0;
-  border-radius: 50%;
-  background: var(--navy);
-  color: var(--cyan);
-  font-size: 34px;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: var(--shadow-sm);
-  transition: transform .18s ease, background .18s ease;
+.home-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
 }
 
-.service-carousel-btn:hover {
-  transform: translateY(-2px);
-  background: var(--navy-mid);
+@media (max-width: 960px) {
+  .home-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.service-carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 18px;
+@media (max-width: 560px) {
+  .home-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .home-services-grid .home-service-slide:nth-child(n+5) {
+    display: none;
+  }
+  .home-services-grid .home-service-slide img {
+    aspect-ratio: 3 / 2;
+  }
+  .home-services-grid .home-service-slide h3 {
+    font-size: 15px;
+    min-height: 56px;
+    padding: 14px 14px;
+  }
 }
 
-.service-carousel-dots button {
-  width: 9px;
-  height: 9px;
-  border: 0;
-  border-radius: 999px;
-  background: rgba(10,25,64,.28);
-  cursor: pointer;
-  transition: width .18s ease, background .18s ease;
-}
-
-.service-carousel-dots button.is-active {
-  width: 28px;
-  background: var(--cyan-dark);
+.home-services-grid .home-service-slide img {
+  aspect-ratio: 4 / 3;
 }
 
 @media (max-width: 960px) {
@@ -1251,19 +1216,6 @@ footer {
   .purpose-section { padding: 42px 0 22px; }
   .purpose-panel { padding: 28px 22px; }
   .home-services-carousel-section { padding: 30px 0 54px; }
-  .home-services-carousel {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-  .service-carousel-btn {
-    display: none;
-  }
-  .home-services-viewport {
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-  .home-services-viewport::-webkit-scrollbar { display: none; }
   .home-service-slide {
     flex: 0 0 84%;
     scroll-snap-align: start;
@@ -1332,29 +1284,6 @@ footer {
 }
 
 @media (max-width: 600px) {
-  .home-services-carousel {
-    grid-template-columns: auto 1fr auto !important;
-    gap: 8px !important;
-  }
-
-  .service-carousel-btn {
-    display: inline-flex !important;
-    width: 38px;
-    height: 38px;
-    font-size: 28px;
-    flex-shrink: 0;
-    z-index: 3;
-  }
-
-  .home-services-viewport {
-    overflow: hidden !important;
-    scroll-snap-type: none !important;
-  }
-
-  .home-services-track {
-    gap: 12px !important;
-    transition: transform .38s ease !important;
-  }
 
   .home-service-slide {
     flex: 0 0 100% !important;
@@ -1418,7 +1347,6 @@ footer {
   }
 }
 
-
 /* ============================================================
    Ajustes finales — breadcrumbs, contraste hero y accesos home
    ============================================================ */
@@ -1475,6 +1403,85 @@ footer {
       rgba(10,25,64,.28) 76%,
       rgba(10,25,64,.18) 100%
     ) !important;
+}
+
+/* ── Reviews ── */
+.home-reviews-section {
+  padding: 64px 0;
+  background: var(--ghost);
+  border-top: 1px solid rgba(10,25,64,.08);
+  border-bottom: 1px solid rgba(10,25,64,.08);
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.review-card {
+  background: var(--white);
+  border: 1.5px solid rgba(10,25,64,.10);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.review-stars {
+  color: #F4B400;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
+
+.review-card blockquote {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--slate);
+  flex: 1;
+}
+
+.review-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.review-initials {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--cyan);
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  letter-spacing: .5px;
+}
+
+.review-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+@media (max-width: 640px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .review-card {
+    padding: 22px 18px;
+  }
 }
 
 .home-quick-links-section {
@@ -1611,7 +1618,6 @@ footer {
   }
 }
 
-
 /* ── Home ubicación + Google Maps ─────────────────────────── */
 .home-location-section {
   background: var(--white);
@@ -1707,7 +1713,6 @@ footer {
   gap: 12px;
   flex-wrap: wrap;
 }
-
 
 /* Hero agendamiento — imagen calendario aprobada */
 .hero-agendar {
@@ -1818,7 +1823,6 @@ footer {
   }
 }
 
-
 /* Corrección final — fondo claro en grillas y botón visible en CTA azul */
 .services-list-section,
 .team-section {
@@ -1908,7 +1912,6 @@ footer {
   border-color: var(--cyan-dark) !important;
   box-shadow: 0 10px 28px rgba(11, 233, 244, .36) !important;
 }
-
 
 /* === Hero CTA buttons consistency === */
 .hero-home-carousel .btn.whatsapp,
@@ -2167,12 +2170,12 @@ footer {
   margin: 0 auto !important;
   color: var(--slate) !important;
   pointer-events: none;
-  animation: purposeTextCycle 8s infinite;
+  animation: purposeTextCycle 14s infinite;
   will-change: opacity, transform;
 }
 
 .purpose-text-rotator .purpose-text-item:nth-child(2) {
-  animation-delay: 4s;
+  animation-delay: 7s;
 }
 
 @keyframes purposeTextCycle {
@@ -2207,7 +2210,6 @@ footer {
     display: none !important;
   }
 }
-
 
 /* ============================================================
    Campañas — landing page
@@ -2512,7 +2514,6 @@ footer {
     height: 108px;
   }
 }
-
 
 /* Equipo — modal de foto ampliada */
 .team-avatar.team-avatar-photo.team-photo-trigger {
