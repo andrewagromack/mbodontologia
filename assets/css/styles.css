@@ -2793,3 +2793,9 @@ body.photo-modal-open {
     color: var(--muted);
   }
 }
+
+/* ── Hero H1/lead constrained — responsive fix ───────────── */
+.hero-h1-constrained,
+.hero-lead-constrained {
+  width: min(700px, 100%);
+}
