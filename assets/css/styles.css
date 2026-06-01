@@ -2726,3 +2726,70 @@ body.photo-modal-open {
     max-height: calc(100vh - 28px) !important;
   }
 }
+
+/* ── Horarios de atención ─────────────────────────────────── */
+.schedule-list {
+  margin: 16px 0 0;
+  border-top: 1px solid rgba(10,25,64,.10);
+  padding-top: 14px;
+  display: grid;
+  gap: 0;
+}
+
+.schedule-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(10,25,64,.07);
+}
+
+.schedule-row:last-child {
+  border-bottom: none;
+}
+
+.schedule-row dt {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+  white-space: nowrap;
+  min-width: 110px;
+}
+
+.schedule-row dd {
+  font-size: 13px;
+  color: var(--slate);
+  text-align: right;
+}
+
+/* Footer: horario compacto */
+.footer-schedule-compact {
+  color: #8AAFCC;
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0 0 8px;
+  white-space: pre-line;
+}
+
+/* Final CTA: horario inline */
+.final-cta-schedule {
+  font-size: 13px;
+  opacity: .72;
+  margin-top: -8px;
+  margin-bottom: 4px;
+  letter-spacing: .01em;
+}
+
+@media (max-width: 480px) {
+  .schedule-row {
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px 0;
+  }
+
+  .schedule-row dd {
+    text-align: left;
+    color: var(--muted);
+  }
+}
