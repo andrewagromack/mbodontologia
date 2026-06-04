@@ -1768,6 +1768,30 @@ footer {
   }
 }
 
+/* Agendar: iframe Dental Soft */
+.dentalsoft-section {
+  background: var(--ghost);
+  padding: 64px 0 56px;
+}
+
+.dentalsoft-embed {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--white);
+}
+
+.dentalsoft-embed iframe {
+  display: block;
+  min-height: 700px;
+}
+
+@media (max-width: 600px) {
+  .dentalsoft-embed iframe {
+    min-height: 820px;
+  }
+}
+
 /* Agendar: layout simplificado con formulario y CTA WhatsApp */
 .agendar-contact-section {
   background: var(--white);
