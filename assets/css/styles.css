@@ -1784,7 +1784,6 @@ footer {
 .dentalsoft-embed iframe {
   display: block;
   min-height: 700px;
-  overflow: hidden;
 }
 
 @media (max-width: 600px) {
