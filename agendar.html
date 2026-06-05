@@ -51,8 +51,9 @@
         <h2>Selecciona tu hora directamente.</h2>
         <p>Reserva a través de nuestro formulario de agendamiento.</p>
       </div>
-      <div class="dentalsoft-embed">
+      <div class="dentalsoft-embed" id="dentalsoft-embed-wrapper">
         <iframe
+          id="dentalsoft-iframe"
           src="https://t.dentalsoft.cl/reserva-web/i/a204e914-95d5-4c0c-80f0-b38b58bf5f75"
           width="100%"
           height="750"
@@ -60,6 +61,13 @@
           loading="lazy"
           title="Portal de agendamiento MB Odontología — Dental Soft">
         </iframe>
+        <div class="dentalsoft-fallback" id="dentalsoft-fallback" style="display:none;">
+          <p>El sistema de agendamiento no pudo cargarse en este navegador.</p>
+          <div class="dentalsoft-fallback-actions">
+            <a class="btn lg whatsapp" href="https://wa.me/56946213158?text=Hola%2C%20quiero%20agendar%20una%20hora%20en%20MB%20Odontolog%C3%ADa." target="_blank" rel="noopener">Agendar por WhatsApp</a>
+            <a class="btn lg secondary" href="https://t.dentalsoft.cl/reserva-web/i/a204e914-95d5-4c0c-80f0-b38b58bf5f75" target="_blank" rel="noopener">Abrir agendador en nueva pestaña</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>

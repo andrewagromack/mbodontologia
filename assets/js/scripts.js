@@ -326,3 +326,40 @@ function loadMap(el) {
   wrapper.innerHTML = '';
   wrapper.appendChild(iframe);
 }
+
+// Dental Soft iframe fallback
+(function () {
+  var iframe = document.getElementById('dentalsoft-iframe');
+  if (!iframe) return;
+
+  var TIMEOUT = 8000; // ms — si en 8s no cargó, muestra fallback
+  var fallback = document.getElementById('dentalsoft-fallback');
+  var wrapper = document.getElementById('dentalsoft-embed-wrapper');
+
+  function showFallback() {
+    iframe.style.display = 'none';
+    iframe.height = '0';
+    if (fallback) fallback.style.display = 'block';
+  }
+
+  // Timer: si el iframe no dispara 'load' en tiempo, asumimos fallo
+  var timer = setTimeout(showFallback, TIMEOUT);
+
+  iframe.addEventListener('load', function () {
+    clearTimeout(timer);
+    // Intenta detectar si el contenido está vacío (error silencioso)
+    try {
+      var doc = iframe.contentDocument || iframe.contentWindow.document;
+      if (!doc || doc.body.innerHTML.trim() === '') showFallback();
+    } catch (e) {
+      // Cross-origin block — el iframe cargó pero no podemos leerlo
+      // Asumimos que está bien (es el caso normal de Dental Soft)
+      clearTimeout(timer);
+    }
+  });
+
+  iframe.addEventListener('error', function () {
+    clearTimeout(timer);
+    showFallback();
+  });
+})();

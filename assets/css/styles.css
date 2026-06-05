@@ -2929,3 +2929,23 @@ body.photo-modal-open {
   text-align: center;
   padding: 0 20px;
 }
+
+/* === Dental Soft fallback === */
+.dentalsoft-fallback {
+  padding: 48px 24px;
+  text-align: center;
+  background: var(--gray-50, #f8f9fa);
+  border-radius: 12px;
+  border: 1px solid var(--gray-200, #e2e8f0);
+}
+.dentalsoft-fallback p {
+  color: var(--gray-600, #64748b);
+  margin-bottom: 24px;
+  font-size: 1rem;
+}
+.dentalsoft-fallback-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
