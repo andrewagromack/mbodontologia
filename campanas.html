@@ -21,11 +21,14 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://mbodontologia.cl/assets/img/og-image.jpg" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" media="print" onload="this.media='all'">
 </head>
 <body>
 <header class="site-header">
   <div class="container nav">
-    <a class="brand" href="index.html"><img src="assets/img/mb-logo.webp" alt="MB Odontología — Clínica dental"><span>Odontología</span></a>
+    <a class="brand" href="index.html"><img src="assets/img/mb-logo.webp" alt="MB Odontología — Clínica dental" width="120" height="95"><span>Odontología</span></a>
     <nav class="menu" aria-label="Menú principal"><a href="index.html">Inicio</a><a href="equipo.html">Nosotros</a><a href="servicios.html">Servicios</a><a href="agendar.html#contacto">Contacto</a><a class="nav-agendar" href="agendar.html#dentalsoft">Agendar</a></nav>
     <button class="mobile-toggle" aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
@@ -170,17 +173,13 @@
           </div>
         </article>
 
-        <div class="home-map-embed">
-          <iframe
-            src="https://www.google.com/maps?q=Jos%C3%A9%20Miguel%20Carrera%20186%2C%20San%20Bernardo%2C%20Chile&output=embed"
-            width="100%"
-            height="360"
-            style="border:0;"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Mapa MB Odontología San Bernardo">
-          </iframe>
+        <div class="home-map-embed map-lazy-wrapper" data-map-src="https://www.google.com/maps?q=Jos%C3%A9%20Miguel%20Carrera%20186%2C%20San%20Bernardo%2C%20Chile&output=embed">
+          <div class="map-placeholder" role="button" tabindex="0" aria-label="Ver mapa en Google Maps" onclick="loadMap(this)">
+            <div class="map-placeholder-inner">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#1a73e8"/></svg>
+              <span>Ver mapa · José Miguel Carrera 186, San Bernardo</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

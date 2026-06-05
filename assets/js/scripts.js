@@ -309,3 +309,20 @@ serviceCarousels.forEach(carousel => {
     }
   });
 })();
+
+// Map lazy load
+function loadMap(el) {
+  var wrapper = el.closest('.map-lazy-wrapper');
+  var src = wrapper.dataset.mapSrc;
+  var iframe = document.createElement('iframe');
+  iframe.src = src;
+  iframe.width = '100%';
+  iframe.height = '360';
+  iframe.style.border = '0';
+  iframe.allowFullscreen = true;
+  iframe.loading = 'lazy';
+  iframe.referrerPolicy = 'no-referrer-when-downgrade';
+  iframe.title = 'Mapa MB Odontología San Bernardo';
+  wrapper.innerHTML = '';
+  wrapper.appendChild(iframe);
+}
