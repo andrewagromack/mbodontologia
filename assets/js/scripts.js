@@ -1,9 +1,27 @@
-// Header scroll effect
+// Header scroll effect — throttled with requestAnimationFrame
 const header = document.querySelector('.site-header');
 if (header) {
-  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 30);
+  let ticking = false;
+  let isScrolled = false;
+
+  const updateHeaderState = () => {
+    const shouldBeScrolled = window.scrollY > 30;
+    if (shouldBeScrolled !== isScrolled) {
+      header.classList.toggle('scrolled', shouldBeScrolled);
+      isScrolled = shouldBeScrolled;
+    }
+    ticking = false;
+  };
+
+  const onScroll = () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateHeaderState);
+      ticking = true;
+    }
+  };
+
   window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  updateHeaderState();
 }
 
 // Mobile menu toggle — rayas siempre paralelas

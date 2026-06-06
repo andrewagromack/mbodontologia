@@ -1,0 +1,18 @@
+OPTIMIZACIÓN REALIZADA - MB ODONTOLOGÍA
+
+Corrección posterior:
+- Se restauraron los logos originales con transparencia preservada: mb-logo.webp, mb-logo-header.webp y mb-logo-white.webp.
+- No se recomprimieron logos, porque la compresión anterior eliminó transparencia y deterioró visualmente la marca.
+
+Cambios mantenidos:
+- Optimización de imágenes de servicios servicio-card-01.webp a servicio-card-09.webp.
+- Generación de versiones responsive de imágenes hero del home en 900px y 1400px.
+- Actualización de index.html con srcset, sizes, width, height, decoding="async" y loading="lazy" en hero secundarios.
+- Agregado de width y height a imágenes de servicios.
+- Versionado de CSS y JS con querystring ?v=20260606b.
+- Ajuste del script del header para reducir impacto de forced reflow mediante requestAnimationFrame.
+- Corrección previa de footer: sin Política de calidad y Agendamientos apuntando a agendar.html.
+- sitemap.xml sin privacidad.html, porque privacidad.html mantiene noindex, follow.
+- Eliminación de CNAME.txt duplicado; queda solo CNAME.
+
+No se modificó Cloudflare.
